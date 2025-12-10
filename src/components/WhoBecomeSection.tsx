@@ -18,13 +18,13 @@ const cards = [
     },
     {
         title: "Physically Fit",
-        description: "Staying physically active by playing sports like: soccer, wakesurfing, skiing, hiking, among many others.",
+        description: "I want to be physically active by playing sports like: soccer, wakesurfing, skiing, hiking, among many others.",
         color: "from-blue-400 to-sky-300",
         media: { type: "video", src: "/wakesurfing.mp4" },
     },
     {
         title: "A Hard Worker",
-        description: "I want to be a hard worker—someone who can take a problem and solve it. Even when others say that it's too difficult or not even possible.",
+        description: "I want to be a hard worker—someone who can take a problem and solve it, even when others say that it's too difficult or not even possible.",
         color: "from-sky-300 to-white",
         media: { type: "image", src: "/football.jpeg" },
     },
