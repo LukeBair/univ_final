@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 const serviceCards = [
     {
         icon: "⛪️",
-        title: "Relgious Service",
-        description: "Being able and willing to serve in different positions in the church, whenever it is requireed of me is something I want to be ready for at all times."
+        title: "Religious Service",
+        description: "Being able and willing to serve in different positions in the church is something I want to be prepared to do throughout my life."
     },
     {
         icon: "💻",
         title: "Work Related Skills",
-        description: "Using my work experience to help others, whether it be thorugh my job or in seperate projects, is a great way for me to use the things I learn to save."
+        description: "I want to be able to use the skills I learn in my job to help others, through work or seperate projects."
     },
     {
         icon: "💡",
@@ -40,7 +40,7 @@ export default function ServiceSection() {
                     viewport={{ once: true }}
                     className="text-xl text-neutral-400"
                 >
-                    Service is the very essence of discipleship. My time here is preparation for a lifetime of lifting others.
+
                 </motion.p>
             </div>
 

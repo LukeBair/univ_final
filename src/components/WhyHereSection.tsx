@@ -31,10 +31,10 @@ export default function WhyHereSection() {
                         <div className="space-y-6 text-lg text-neutral-300">
                             <p className="bg-[var(--byu-navy)]/40 p-6 rounded-lg backdrop-blur-sm border border-white/10">
                                 The reason I'm here really wasn't too interesting, it was one of two places that I got accepted to.
-                                However, I picked BYU because of the community and because of the academic rigor and standards that BYU displays.
+                                However, I picked BYU because of the community, academic rigor, and standards that BYU displays.
                             </p>
                             <p className="bg-[var(--byu-navy)]/40 p-6 rounded-lg backdrop-blur-sm border border-white/10">
-                                I'm still growing into my place at BYU, but I have undoubtly have had a great experience so far, and have been learning a lot.
+                                I'm still growing into my place at BYU, but I have undoubtedly had a great experience so far, and have been learning a lot.
                                 I look forward to the winter semester and future semesters at BYU.
                             </p>
                         </div>

@@ -6,25 +6,25 @@ import { useRef, useEffect } from "react";
 const cards = [
     {
         title: "A Lifelong Learner",
-        description: "I want to be a teachable person throughtout my life, and always curious. Learning about new random things is something I enjoy.",
+        description: "I want to be a teachable person throughout my life. Learning about new random things is something I enjoy.",
         color: "from-[var(--byu-navy)] to-blue-700",
         media: { type: "image", src: "/mountain.jpeg" },
     },
     {
         title: "A Positive Person",
-        description: "Being able to have a positive outlook on life is something that I always want to have, because being happy just makes life that much more fun.",
+        description: "A positive outlook on life is something that I always want to have. Being happy just makes life that much more fun to me.",
         color: "from-blue-700 to-blue-400",
         media: { type: "image", src: "/firealarmlol.JPG", objectFit: "contain", backgroundColor: "#0a0a0a" },
     },
     {
-        title: "Physically fit",
-        description: "Staying physically active by playing sports, like soccer, wakesurfing, skiing, hiking, etc are all things I want to continue to do both for fun, and to stay in shape.",
+        title: "Physically Fit",
+        description: "Staying physically active by playing sports like: soccer, wakesurfing, skiing, hiking, among many others.",
         color: "from-blue-400 to-sky-300",
         media: { type: "video", src: "/wakesurfing.mp4" },
     },
     {
         title: "A Hard Worker",
-        description: "I want to be a hard worker, someone who can take a problem and solve it, even when others say that its too difficult or even not possible.",
+        description: "I want to be a hard worker—someone who can take a problem and solve it. Even when others say that it's too difficult or not even possible.",
         color: "from-sky-300 to-white",
         media: { type: "image", src: "/football.jpeg" },
     },
