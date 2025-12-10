@@ -11,12 +11,12 @@ const serviceCards = [
     {
         icon: "💻",
         title: "Work Related Skills",
-        description: "I want to be able to use the skills I learn in my job to help others, through work or seperate projects."
+        description: "I want to be able to use the skills I learn in my job to help others, through work or separate projects."
     },
     {
         icon: "💡",
         title: "Mentorship",
-        description: "Helping other students and people around me learn and grow through difficult times in their lifes is one thing that I always strive to do, even if I'm not quite sure how to do it."
+        description: "Helping other students and people around me learn and grow through difficult times in their lives is one thing that I always strive to do, even if I'm not quite sure how to do it."
     }
 ];
 
