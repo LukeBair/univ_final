@@ -1,28 +1,32 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const cards = [
     {
         title: "A Lifelong Learner",
-        description: "I hope to never stop asking questions. Becoming someone who seeks truth in all fields of study.",
-        color: "from-blue-500 to-cyan-500",
+        description: "I want to be a teachable person throughtout my life, and always curious. Learning about new random things is something I enjoy.",
+        color: "from-[var(--byu-navy)] to-blue-700",
+        media: { type: "image", src: "/mountain.jpeg" },
     },
     {
-        title: "A Compassionate Leader",
-        description: "Developing the empathy and skills to lead not just with authority, but with love and understanding.",
-        color: "from-cyan-500 to-teal-500",
+        title: "A Positive Person",
+        description: "Being able to have a positive outlook on life is something that I always want to have, because being happy just makes life that much more fun.",
+        color: "from-blue-700 to-blue-400",
+        media: { type: "image", src: "/firealarmlol.JPG", objectFit: "contain", backgroundColor: "#0a0a0a" },
     },
     {
-        title: "A Faithful Disciple",
-        description: "Strengthening my foundation so that I can stand firm in my beliefs while lifting others.",
-        color: "from-teal-500 to-emerald-500",
+        title: "Physically fit",
+        description: "Staying physically active by playing sports, like soccer, wakesurfing, skiing, hiking, etc are all things I want to continue to do both for fun, and to stay in shape.",
+        color: "from-blue-400 to-sky-300",
+        media: { type: "video", src: "/wakesurfing.mp4" },
     },
     {
-        title: "A Skilled Creator",
-        description: "Mastering my craft to create things that bring value, beauty, and utility to the world.",
-        color: "from-emerald-500 to-green-500",
+        title: "A Hard Worker",
+        description: "I want to be a hard worker, someone who can take a problem and solve it, even when others say that its too difficult or even not possible.",
+        color: "from-sky-300 to-white",
+        media: { type: "image", src: "/football.jpeg" },
     },
 ];
 
@@ -37,12 +41,12 @@ export default function WhoBecomeSection() {
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
 
     return (
-        <section ref={targetRef} className="relative h-[300vh] bg-neutral-950">
+        <section ref={targetRef} className="relative h-[300vh] bg-neutral-950 -mt-40">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
 
                 {/* Section Heading (Static relative to viewport, but part of the sticky container) */}
-                <div className="absolute left-10 top-20 z-10 p-4 bg-neutral-950/80 backdrop-blur-md rounded-lg border border-neutral-800">
-                    <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-teal-500">
+                <div className="absolute left-10 top-20 z-10 p-4 bg-[var(--byu-navy)]/80 backdrop-blur-md rounded-lg border border-white/10">
+                    <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300">
                         Who do I hope to become?
                     </h2>
                     <p className="text-sm text-neutral-400 mt-2">Scroll down to explore the journey &rarr;</p>
@@ -64,8 +68,21 @@ export default function WhoBecomeSection() {
                             </div>
 
                             {/* Photo Placeholder */}
-                            <div className="absolute top-0 left-0 w-full h-1/2 bg-white/5 border-b border-white/10 flex items-center justify-center text-xs text-neutral-600 font-mono">
-                                [ Photo Area ]
+                            {/* Media Content */}
+                            <div
+                                className="absolute top-0 left-0 w-full h-1/2 bg-neutral-800 border-b border-white/10 overflow-hidden"
+                                style={{ backgroundColor: (card.media as any).backgroundColor }}
+                            >
+                                {card.media.type === "video" ? (
+                                    <VideoPlayer src={card.media.src} />
+                                ) : (
+                                    <img
+                                        src={card.media.src}
+                                        alt={card.title}
+                                        style={{ objectFit: (card.media.objectFit as any) || "cover" }}
+                                        className="w-full h-full transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                )}
                             </div>
                         </div>
                     ))}
@@ -75,5 +92,27 @@ export default function WhoBecomeSection() {
                 </motion.div>
             </div>
         </section>
+    );
+}
+
+function VideoPlayer({ src }: { src: string }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.volume = 0.1; // Really low volume
+        }
+    }, []);
+
+    return (
+        <video
+            ref={videoRef}
+            src={src}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted={false} // Attempt to play with sound
+            playsInline
+        />
     );
 }

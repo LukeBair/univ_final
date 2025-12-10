@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 
 const serviceCards = [
     {
-        icon: "🤝",
-        title: "Community Outreach",
-        description: "Engaging with local initiatives to combat food insecurity and homelessness in Provo."
+        icon: "⛪️",
+        title: "Relgious Service",
+        description: "Being able and willing to serve in different positions in the church, whenever it is requireed of me is something I want to be ready for at all times."
     },
     {
-        icon: "🌍",
-        title: "Global Perspective",
-        description: "Preparing to serve a mission or study abroad to understand diverse cultures and needs."
+        icon: "💻",
+        title: "Work Related Skills",
+        description: "Using my work experience to help others, whether it be thorugh my job or in seperate projects, is a great way for me to use the things I learn to save."
     },
     {
         icon: "💡",
         title: "Mentorship",
-        description: "Helping fellow students navigate the transition to university life, just as I was helped."
+        description: "Helping other students and people around me learn and grow through difficult times in their lifes is one thing that I always strive to do, even if I'm not quite sure how to do it."
     }
 ];
 

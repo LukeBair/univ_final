@@ -7,71 +7,72 @@ export default function WhyHereSection() {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start end", "end start"],
+        offset: ["start start", "end end"],
     });
 
-    // Text moves slower (smaller range)
-    const yText = useTransform(scrollYProgress, [0, 1], [0, 200]);
+    // Images slide up as we scroll through the pinned section
+    // Starting slightly lower and ending higher to pass through view
+    const yImages = useTransform(scrollYProgress, [0, 1], ["10%", "-125%"]);
 
-    // Images move faster (larger range) and stagger slightly if needed
-    // We'll group them or give them separate transforms
-    const yImages = useTransform(scrollYProgress, [0, 1], [-100, -400]);
+    // Text opacity - fade out at the very end
+    const opacityText = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
 
     return (
-        <section ref={containerRef} className="min-h-[200vh] flex items-start justify-center pt-0 pb-20 relative overflow-hidden">
-            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative top-0">
+        // Outer container defines the total scroll distance (450vh = 4.5 screens worth of scrolling)
+        <section ref={containerRef} className="relative h-[450vh]">
+            {/* Sticky container holds the viewport view "still" */}
+            <div className="sticky top-0 h-screen flex items-start justify-center pt-20 overflow-hidden">
 
-                {/* Text Content - Sticky-ish or just slow moving */}
-                <div className="sticky top-4 min-h-[50vh]">
-                    <motion.div style={{ y: yText }} className="z-10">
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6 text-indigo-400 mt-8">Why am I here?</h2>
+                <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start h-full">
+
+                    {/* Text Content - Static but fades out at end */}
+                    <motion.div style={{ opacity: opacityText }} className="z-10 mt-12 md:mt-0">
+                        <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white mt-8">Why am I here?</h2>
                         <div className="space-y-6 text-lg text-neutral-300">
-                            <p className="bg-neutral-900/50 p-6 rounded-lg backdrop-blur-sm border border-neutral-800">
-                                I believe I am here to discover my potential and align my passions with a greater purpose.
-                                BYU provides a unique environment where secular learning and spiritual growth intertwine.
+                            <p className="bg-[var(--byu-navy)]/40 p-6 rounded-lg backdrop-blur-sm border border-white/10">
+                                The reason I'm here really wasn't to interesting, it was one of 2 places that I got accepted to.
+                                However, I picked BYU because of the community and because of the academic rigor and standards that BYU displays.
                             </p>
-                            <p className="bg-neutral-900/50 p-6 rounded-lg backdrop-blur-sm border border-neutral-800">
-                                It&#39;s not just about the degree; it&#39;s about becoming a disciple-scholar.
-                                Finding my community and learning to contribute to something bigger than myself.
-                                <br /><br />
-                                Every class, every interaction is a chance to refine who I am.
+                            <p className="bg-[var(--byu-navy)]/40 p-6 rounded-lg backdrop-blur-sm border border-white/10">
+                                I'm still growing into my place at BYU, but I have undoubtly have had a great experience so far, and have been learning a lot.
+                                I look forward to the winter semester and future semesters at BYU.
                             </p>
                         </div>
                     </motion.div>
+
+                    {/* Visual Content - Sliding Images */}
+                    <motion.div style={{ y: yImages }} className="flex flex-col gap-24 w-full will-change-transform">
+                        {/* Image 1 */}
+                        <div className="relative h-[350px] w-full rounded-2xl overflow-hidden bg-neutral-800 border-2 border-neutral-700 dashed flex items-center justify-center group rotate-2 shadow-2xl">
+                            <div className="absolute inset-0 bg-neutral-900/20 group-hover:bg-neutral-900/10 transition-colors z-10" />
+                            <img src="/Y.jpg" alt="the Y" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+
+                        {/* Image 2 */}
+                        <div className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-neutral-800 border-2 border-neutral-700 dashed flex items-center justify-center group -rotate-1 translate-x-4 shadow-2xl">
+                            <div className="absolute inset-0 bg-neutral-900/20 group-hover:bg-neutral-900/10 transition-colors z-10" />
+                            <img src="/generalconference.jpg" alt="General Conference" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+
+                        {/* Image 3 */}
+                        <div className="relative h-[350px] w-full rounded-2xl overflow-hidden bg-neutral-800 border-2 border-neutral-700 dashed flex items-center justify-center group rotate-1 -translate-x-2 shadow-2xl">
+                            <div className="absolute inset-0 bg-neutral-900/20 group-hover:bg-neutral-900/10 transition-colors z-10" />
+                            <img src="/footballgame.jpeg" alt="Football Game" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+
+                        {/* Image 4 */}
+                        <div className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-neutral-800 border-2 border-neutral-700 dashed flex items-center justify-center group -rotate-2 translate-x-3 shadow-2xl">
+                            <div className="absolute inset-0 bg-neutral-900/20 group-hover:bg-neutral-900/10 transition-colors z-10" />
+                            <img src="/boatingtrip.jpeg" alt="Boating Trip" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                    </motion.div>
+
                 </div>
 
-                {/* Visual Content - Multiple scrolling images */}
-                <motion.div style={{ y: yImages }} className="flex flex-col gap-8 w-full">
-                    {/* Image 1 */}
-                    <div className="relative h-[300px] w-full rounded-2xl overflow-hidden bg-neutral-800 border-2 border-neutral-700 dashed flex items-center justify-center group rotate-2">
-                        <div className="absolute inset-0 bg-indigo-900/20 group-hover:bg-indigo-900/10 transition-colors" />
-                        <p className="text-neutral-500 font-mono text-center px-4">
-                            [ Campus View ]
-                        </p>
-                    </div>
-
-                    {/* Image 2 */}
-                    <div className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-neutral-800 border-2 border-neutral-700 dashed flex items-center justify-center group -rotate-1 translate-x-4">
-                        <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-purple-900/10 transition-colors" />
-                        <p className="text-neutral-500 font-mono text-center px-4">
-                            [ Study Group / Library ]
-                        </p>
-                    </div>
-
-                    {/* Image 3 */}
-                    <div className="relative h-[350px] w-full rounded-2xl overflow-hidden bg-neutral-800 border-2 border-neutral-700 dashed flex items-center justify-center group rotate-1 -translate-x-2">
-                        <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-blue-900/10 transition-colors" />
-                        <p className="text-neutral-500 font-mono text-center px-4">
-                            [ Mentorship Moment ]
-                        </p>
-                    </div>
-                </motion.div>
-
+                {/* Decorative background elements pinned with the container */}
+                <div className="absolute top-1/4 left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl mx-auto -z-10" />
+                <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl mx-auto -z-10" />
             </div>
-
-            {/* Decorative background elements */}
-            <div className="absolute top-1/4 left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl mx-auto" />
-            <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl mx-auto" />
         </section>
     );
 }

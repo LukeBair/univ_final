@@ -2,20 +2,25 @@ import HeroSection from "@/components/HeroSection";
 import WhyHereSection from "@/components/WhyHereSection";
 import WhoBecomeSection from "@/components/WhoBecomeSection";
 import ServiceSection from "@/components/ServiceSection";
-import CreatorStatement from "@/components/CreatorStatement";
 
 export default function Home() {
     return (
-        <main className="flex flex-col bg-neutral-950 min-h-screen selection:bg-indigo-500/30">
+        <main className="flex flex-col bg-[var(--background)] min-h-screen selection:bg-blue-500/30">
             <HeroSection />
             <WhyHereSection />
             <WhoBecomeSection />
             <ServiceSection />
-            <CreatorStatement />
 
             {/* Footer / Scroll hint for bottom */}
-            <footer className="py-8 text-center text-neutral-600 text-sm">
-                &copy; {new Date().getFullYear()} University Final Project
+            <footer className="relative py-20 text-center text-neutral-400 text-sm overflow-hidden">
+                {/* Background Footer Image */}
+                <div className="absolute inset-0 z-0 opacity-20">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] to-transparent" />
+                </div>
+
+                <div className="relative z-10">
+                    &copy; {new Date().getFullYear()} University Final Project
+                </div>
             </footer>
         </main>
     );
