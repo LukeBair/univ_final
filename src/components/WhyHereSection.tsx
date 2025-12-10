@@ -30,7 +30,7 @@ export default function WhyHereSection() {
                         <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white mt-8">Why am I here?</h2>
                         <div className="space-y-6 text-lg text-neutral-300">
                             <p className="bg-[var(--byu-navy)]/40 p-6 rounded-lg backdrop-blur-sm border border-white/10">
-                                The reason I'm here really wasn't to interesting, it was one of 2 places that I got accepted to.
+                                The reason I'm here really wasn't too interesting, it was one of two places that I got accepted to.
                                 However, I picked BYU because of the community and because of the academic rigor and standards that BYU displays.
                             </p>
                             <p className="bg-[var(--byu-navy)]/40 p-6 rounded-lg backdrop-blur-sm border border-white/10">
